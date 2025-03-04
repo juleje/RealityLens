@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tags - admin</title>
+
+    <div th:insert="layout/styles.html"></div>
+</head>
+<body>
+<div th:replace="layout/adminHeader.html :: admin_header(activePage='tags')"></div>
+<div th:replace="layout/adminHeaderMain.html"></div>
+<div class="admin_main">
+    <h1>Tags</h1>
+
+    <form id="tagForm" class="add_tag_form"
+          th:action="${editTag == null ? '/admin/tags/add' : '/admin/tags/' + editTag.getId() + '/edit'}" method="post">
+        <h3 th:if="${editTag == null}">Tag toevoegen</h3>
+        <h3 th:if="${editTag != null}">Tag aanpassen</h3>
+        <div class="form-controls">
+            <input th:if="${editTag == null}" required type="text" name="tagName" id="">
+            <input th:if="${editTag != null}" required type="text" name="tagName" th:value="${editTag.getName()}">
+
+            <input th:if="${editTag == null}" type="submit" value="Toevoegen" class="btn btn-success">
+            <input th:if="${editTag != null}" type="submit" value="Aanpassen" class="btn btn-success">
+        </div>
+    </form>
+
+    <div th:if="${editTag == null}" class="allTags">
+        <div class="tag" th:each="tag: ${tags}">
+            <p th:text="${tag.getName()}"></p>
+            <p id="tag_id" class="d-none" th:text="${tag.getId()}"></p>
+            <div class="actions">
+                <a th:href="@{/admin/tags/{tagId}/edit(tagId = ${tag.getId()})}"><img th:src="@{/img/editIcon.png}"
+                                                                                      alt="edit"></a>
+                <a th:href="@{/admin/tags/{tagId}/delete(tagId = ${tag.getId()})}"><img th:src="@{/img/deleteIcon.png}"
+                                                                                        alt="delete"></a>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="layout/adminFooter.html"></div>
+
+<div th:insert="layout/scripts.html"></div>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:if="${addProj}">Project toevoegen - admin</title>
+    <title th:if="${!addProj}">Project bewerken - admin</title>
+
+    <div th:insert="layout/styles.html"></div>
+</head>
+<body>
+<div th:replace="layout/adminHeader.html :: admin_header(activePage='projects')"></div>
+<div th:replace="layout/adminHeaderMain.html"></div>
+<div class="admin_main">
+    <h1 th:if="${addProj}">Project toevoegen</h1>
+    <h1 th:if="${!addProj}">Project bewerken</h1>
+    <div class="addProjects">
+        <form class="add_project_form" th:object="${projectForm}" method="post"
+              th:action="${editId == 0 ? '/admin/addProject' : '/admin/editproject/' + editId}">
+            <div class="form-group mt-3">
+                <label type="text">Naam</label>
+                <input th:field="*{name}" required type="text" name="name" class="form-control">
+                <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="alert alert-danger mt-2">Name
+                    Error</p>
+            </div>
+            <div class="form-group mt-3">
+                <label type="text">Bescrijving</label>
+                <input th:field="*{description}" required type="text" name="description" class="form-control">
+            </div>
+
+            <input th:if="${addProj}" type="submit" class="btn btn-success" value="Project toevoegen"/>
+            <input th:if="${!addProj}" type="submit" class="btn btn-success" value="Project aanpassen"/>
+        </form>
+
+    </div>
+</div>
+<div th:replace="layout/adminFooter.html"></div>
+
+<div th:insert="layout/scripts.html"></div>
+
+</body>
+</html>

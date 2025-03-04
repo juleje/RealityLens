@@ -1,0 +1,103 @@
+body {
+    font-family: 'Roboto Light', sans-serif;
+}
+
+#goBackArrowInAr {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 50px;
+}
+
+#popup {
+    position: absolute;
+    background: #AFD0AB;
+    max-width: 1000px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid black;
+    margin: 2px;
+    width: 90%;
+    border-radius: 10px;
+
+}
+
+#popup h1 {
+    padding-bottom: 10px;
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 0;
+}
+
+#popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+#popup .close:hover {
+    color: #06D85F;
+}
+
+#popup .descriptionPopup {
+    overflow-y: scroll;
+    max-height: 73vh;
+    padding: 5px;
+    height: 50vh;
+}
+
+/*buttons*/
+.bottomPopup {
+    border-top: 2px solid black;
+    margin-top: 15px;
+    padding-top: 5px;
+    height:10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bottomPopup p {
+    margin-left: 10px;
+}
+
+.likes, .comments {
+    display: inline-block;
+    width: 48%;
+    text-align: center;
+    height:60%;
+}
+
+.commentPic, .likePic{
+    height: 100%;
+    display: inline-block;
+}
+
+.numberOfLikes {
+    display: inline-block;
+}
+
+.numberOfComments {
+    display: inline-block;
+}
+
+.imagePopup {
+    height: 20vh;
+    text-align: center;
+}
+
+.imagePopup img {
+    height: 100%;
+    padding-top: 5px;
+}
+
+.popupHeader {
+    height: 10vh;
+    border-bottom: 2px solid black;
+}

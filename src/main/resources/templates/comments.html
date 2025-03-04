@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Comments</title>
+    <script th:src="@{/js/comments.js}" type="text/javascript"></script>
+    <link th:href="@{/css/comments.css}" rel="stylesheet"/>
+    <div th:insert="layout/styles.html"></div>
+</head>
+<body>
+<section class="msger" id="sectionId">
+    <header class="msger-header">
+        <div class="msger-header-title" th:text="'Comments - ' + ${checkpoint.name}">
+            <i class="fas fa-comment-alt"></i>
+        </div>
+        <div class="msger-header-options">
+            <a id="closeComments">x</a>
+            <span><i class="fas fa-cog"></i></span>
+        </div>
+    </header>
+
+    <main class="msger-chat">
+        <th:block th:each="comment : ${comments}">
+
+        <div class="msg left-msg">
+            <div class="msg-bubble">
+                <div class="msg-info">
+                    <div class="msg-info-name" th:text="${comment.username}"></div>
+                    <div class="msg-info-time" th:text="${comment.date}"></div>
+                </div>
+
+                <div class="msg-text" th:text="${comment.message}">
+
+                </div>
+            </div>
+        </div>
+        </th:block>
+    </main>
+
+    <form class="msger-inputarea" method="post" th:action="@{/user/comments/{params}/{checkpointId}(checkpointId=${checkpointId},params=${params})}">
+        <input type="text" name="messageComment" class="msger-input" placeholder="Schrijf hier je opmerking...">
+        <button id="nieuweOpmerking" type="submit" class="msger-send-btn">Verstuur</button>
+    </form>
+</section>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkpoints - admin</title>
+
+    <div th:insert="layout/styles.html"></div>
+</head>
+<body>
+<div th:replace="layout/adminHeader.html :: admin_header(activePage='checkpoints')"></div>
+<div th:replace="layout/adminHeaderMain.html"></div>
+<div class="admin_main">
+    <h1>Checkpoints</h1>
+
+    <div id="submenu_checkpoints" class="submenu_checkpoints">
+        <button id="submenu_checkpoints_map" class="active">Map weergave</button>
+        <button id="submenu_checkpoints_list">Lijst weergave</button>
+    </div>
+
+    <div class="add_upload_checkpoint_buttons">
+        <a th:href="@{/admin/addCheckpoint}" class="btn btn-success">Checkpoint toevoegen</a>
+        <a th:href="@{/admin/upload}" class="btn btn-success">Excel uploaden</a>
+    </div>
+
+    <div id="checkpoints_areas">
+        <div id="checkpoints_map" class="checkpoints checkpoints_map">
+            <div id="map"></div>
+            <div class="map_aside">
+                <div class="popout">
+                    <h3 class="markerTitle">Selecteer</h3>
+                    <p class="markerDescription">Selecteer een checkpoint om de details te bekijken</p>
+                    <div id="markerActions" class="markerActions hide">
+                        <a id="detailCheckpointLink" th:href="@{/admin/checkpoint/}"><img th:src="@{/img/eye.png}" alt=""></a>
+                        <a id="editCheckpointLink" th:href="@{/admin/editCheckpoint/}"><img th:src="@{/img/editIcon.png}" alt=""></a>
+                        <a id="deleteCheckpointLink" th:href="@{/admin/deleteCheckpoint/}"><img th:src="@{/img/deleteIcon.png}" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="checkpoints_list" class="checkpoints_list d-none">
+            <select id="checkpoint_list_select" class="" name="project">
+                <option value="0" selected="true">Selecteer een project</option>
+                <option th:each="project : ${allProjects}"
+                        th:value="${project.getId()}"
+                        th:text="${project.getName()}">
+                </option>
+            </select>
+
+            <table id="checkpoints_table" class="table table-sm">
+                <thead>
+                <tr>
+                    <th scope="col">Naam</th>
+                    <th scope="col">Beschrijving</th>
+                    <th scope="col">adres</th>
+                    <th scope="col">Longitude</th>
+                    <th scope="col">Latitude</th>
+                    <th colspan="3"></th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr id="table_spacer">
+                    <td colspan="5">Selecteer een project</td>
+                </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div th:replace="layout/adminFooter.html"></div>
+
+<div th:insert="layout/scripts.html"></div>
+<script th:src="${'https://maps.googleapis.com/maps/api/js?key=' + @environment.getProperty('google.maps.api.key') + '&callback=initMapCheckpoints'}"
+        defer></script>
+
+
+</body>
+</html>

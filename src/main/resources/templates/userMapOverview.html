@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Overview</title>
+    <script>
+
+    </script>
+    <div th:insert="layout/styles.html"></div>
+</head>
+<body>
+<div id="map_user"></div>
+<div class="topnav">
+    <div id="actions">
+        <button id="openFilter"><img th:src="@{/img/magnifier.png}" alt=""></button>
+        <button id="btn-checkpoints" class="btn-checkpoints"><img th:src="@{/img/eye.png}" alt=""></button>
+    </div>
+    <div id="hambiIcon" class="hambiIcon">
+        <img th:src="@{/img/bpartIconLogo.png}" alt="Bpart logo">
+        <!--https://www.w3schools.com/howto/howto_js_mobile_navbar.asp-->
+    </div>
+</div>
+
+<div id="filter_user_checkpoints" class="filter_user_checkpoints d-none">
+  <div class="filterHeader">
+    <h3>Filter</h3>
+    <h3 id="filterClose">X</h3>
+  </div>
+
+
+    <h4>Actieve tags</h4>
+    <div id="activeFilter" class="activeFilter">
+        <!--<div class="tag">
+          <p class="tagName" th:text="${tag.getName()}"></p>
+          <p class="tagRemove">X</p>
+        </div>-->
+    </div>
+
+    <h4>Beschikbare tags</h4>
+    <div id="availableFilter" class="availableFilter">
+        <div th:id="${'tag-' + tag.getId()}" class="tag" th:each="tag : ${tags}">
+            <p class="tagName" th:text="${tag.getName()}"></p>
+        </div>
+    </div>
+</div>
+
+<p th:text="${projectName}" id="projectName" class="d-none"></p>
+
+
+<div th:insert="layout/scripts.html"></div>
+<script th:src="${'https://maps.googleapis.com/maps/api/js?key=' + @environment.getProperty('google.maps.api.key') + '&callback=initMapUser'}"
+        defer></script>
+</body>
+</html>

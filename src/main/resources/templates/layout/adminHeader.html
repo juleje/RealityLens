@@ -1,0 +1,21 @@
+<div th:fragment="admin_header" class="admin_navbar">
+    <p class="title">Digital engagement</p>
+    <img th:src="@{/img/bpartIconLogo.png}" alt="logo bpart" class="header_logo">
+    <ul>
+        <li th:class="${activePage == 'checkpoints' ? 'active' : ''}">
+            <a th:href="@{/admin/checkpoints}">Checkpoints</a>
+        </li>
+        <li th:class="${activePage == 'projects' ? 'active' : ''}" >
+            <a th:href="@{/admin/projects}">Projecten</a>
+        </li>
+
+        <li th:class="${activePage == 'tags' ? 'active' : ''}">
+            <a th:href="@{/admin/tags}">Tags</a>
+        </li>
+        <li>
+            <form th:action="@{/logout}" method="post">
+                <input type="submit" value="Uitloggen"/>
+            </form>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload - admin</title>
+
+    <div th:insert="layout/styles.html"></div>
+</head>
+<body>
+<div th:replace="layout/adminHeader.html :: admin_header(activePage='checkpoints')"></div>
+<div class="admin_main">
+    <h1>Upload checkpoints</h1>
+
+    <p th:if="${errormessage == 'error'}" class="alert alert-danger">Er is iets fout gelopen, probeer (later)
+        opnieuw</p>
+    <p th:if="${errormessage != 'success' && errormessage != 'error' && !errormessage.isEmpty()}" th:text="${errormessage}" class="alert alert-danger"></p>
+    <p th:if="${errormessage == 'success'}" class="alert alert-success">Checkpoints zijn succesvol toegevoegd</p>
+
+    <form th:object="${excelForm}" method="post" enctype='multipart/form-data'>
+        <select id="checkpoint_list_select" th:field="*{projectId}" class="" name="project">
+            <option value="0" selected="true">Selecteer een project</option>
+            <option th:each="project : ${allProjects}"
+                    th:value="${project.getId()}"
+                    th:text="${project.getName()}">
+            </option>
+        </select>
+
+        <div class="form-control-file">
+            <label class="form-label" for="">Selecteer een excel bestand</label>
+            <input th:field="*{file}" class="form-control" type="file" name="file" id="">
+        </div>
+
+        <input type="submit" class="btn btn-success" value="Uploaden"/>
+
+    </form>
+</div>
+<div th:replace="layout/adminFooter.html"></div>
+
+<div th:insert="layout/scripts.html"></div>
+
+</body>
+</html>

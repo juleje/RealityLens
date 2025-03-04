@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkpoint - admin</title>
+
+    <div th:insert="layout/styles.html"></div>
+</head>
+<body>
+<div th:replace="layout/adminHeader.html :: admin_header(activePage='checkpoints')"></div>
+<div th:replace="layout/adminHeaderMain.html"></div>
+<div class="admin_main">
+    <h1 th:text="${'checkpoint - ' + checkpoint.getName()}"></h1>
+
+    <div class="checkpoint">
+        <div id="map"></div>
+        <div id="map_aside" class="map_aside">
+            <h3 class="markerTitle"></h3>
+            <p class="markerDescription"></p>
+        </div>
+        <p id="checkpointDetailId" th:text="${checkpoint.getId()}"></p>
+    </div>
+
+    <div id="checkpointTags" class="checkpointTags">
+        <p id="checkpointId" th:text="${checkpoint.getId()}"></p>
+        <div class="tagsAndTitle">
+            <h4>Actieve tags</h4>
+            <div id="activeTags" class="tags">
+                <div class="tag" th:each="tag: ${checkpoint.getTags()}">
+                    <p class="tagName" th:text="${tag.getName()}"></p>
+                    <p th:class="${'tagAction tagId' + tag.getId() + ' tagActionRemove'}">&#8681;</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tagsAndTitle">
+            <h4>Niet actieve tags</h4>
+            <div id="nonActiveTags" class="tags">
+                <div class="tag" th:each="tag: ${otherTags}">
+                    <p class="tagName" th:text="${tag.getName()}"></p>
+                    <p th:class="${'tagAction tagId' + tag.getId() + ' tagActionAdd'}">&#8679;</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="layout/adminFooter.html"></div>
+
+
+<div th:insert="layout/scripts.html"></div>
+<script th:src="${'https://maps.googleapis.com/maps/api/js?key=' + @environment.getProperty('google.maps.api.key') + '&callback=initMapCheckpointDetail'}"
+        defer></script>
+</body>
+</html>

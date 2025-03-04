@@ -1,0 +1,11 @@
+Model Information:
+* title:	Fontaine de l'Observatoire, Paris
+* source:	https://sketchfab.com/3d-models/fontaine-de-lobservatoire-paris-2fd367e20a32409b9e85a812b09f152c
+* author:	HoangHiepVu (https://sketchfab.com/HoangHiepVu)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Fontaine de l'Observatoire, Paris" (https://sketchfab.com/3d-models/fontaine-de-lobservatoire-paris-2fd367e20a32409b9e85a812b09f152c) by HoangHiepVu (https://sketchfab.com/HoangHiepVu) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

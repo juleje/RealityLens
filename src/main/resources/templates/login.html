@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - login</title>
+    <link th:href="@{/css/adminLogin.css}" rel="stylesheet" />
+</head>
+<body>
+<h2>DIGITAL ENGAGEMENT</h2>
+
+<div class="container" id="container">
+    <!-- meld aan  -->
+    <div class="form-container sign-in-container">
+        <div th:if="${param.error}">
+            Invalid username and password.
+        </div>
+        <div th:if="${param.logout}">
+            You have been logged out.
+        </div>
+        <form id="login" action="#" role="form" th:action="@{/login}" th:method="post">
+            <h1 class="form__title">Log in</h1>
+            <div class="form__input-group">
+                <label for="username">Gebruikersnaam: </label>
+                <input type="text" class="form__input" name="username" id="username" required>
+            </div>
+            <div class="form__input-group">
+                <label for="password">Wachtwoord: </label>
+                <input type="password" class="form__input" name="password" id="password" required>
+            </div>
+            <div class="form__input-group">
+                <button type="submit" class="form__button">Meld aan</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="overlay-container">
+        <div class="overlay">
+
+            <div class="overlay-panel overlay-right">
+                <h1>Hallo!</h1>
+                <p>Geef je persoonlijke gegevens in om je te registreren.</p>
+                <button class="ghost" id="registreer">Registreer</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:insert="layout/scripts.html"></div>
+</body>
+</html>

@@ -1,0 +1,112 @@
+.admin_navbar {
+    width: 250px;
+    height: 100vh;
+    float: left;
+    background-image: linear-gradient(to bottom, #85B8A2, #6AA198);
+    position: relative;
+}
+.admin_navbar .title {
+    font-size: 2em;
+    font-weight: bold;
+    width: calc(100% - 10px);
+    height: 100px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #2F4858;
+    margin: 0 5px 20px 5px;
+}
+.admin_navbar .header_logo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+}
+.admin_navbar ul {
+    width: calc(100% - 10px);
+    padding: 0;
+    margin: 15px 5px 0 5px;
+}
+.admin_navbar ul li {
+    margin-bottom: 5px;
+}
+.admin_navbar ul li,
+.admin_navbar ul li form{
+    width: 100%;
+    list-style: none;
+    border-radius: 5px;
+}
+.admin_navbar ul li form {
+    width: 100%;
+}
+.admin_navbar ul li a,
+.admin_navbar ul li form input {
+    display: block;
+    font-weight: bold;
+    width: 100%;
+    color: black;
+    padding: 15px 5px;
+    background-color: transparent;
+    border: none;
+    text-align: left;
+    border-radius: 5px;
+}
+.admin_navbar ul li:hover,
+.admin_navbar ul li form input:hover {
+    background-color: #44747D;
+    cursor: pointer;
+}
+.admin_navbar ul li.active {
+    background-color: #44747D;
+}
+.admin_navbar ul li a:hover {
+    text-decoration: none;
+}
+.admin_navbar ul li:last-child {
+    position: absolute;
+    bottom: 15px;
+    width: calc(100% - 10px);
+}
+
+.admin_main_header, .admin_main, .admin_footer {
+    width: calc(100vw - 250px);
+    float: right;
+    margin: 0;
+    background-color: whitesmoke;
+}
+.admin_main_header {
+    height: 100px;
+}
+.admin_main_header p {
+    font-size: 4em;
+    font-weight: bold;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: calc(100% - 20px - 20px);
+    height: 100px;
+    border-bottom: 1px solid #2F4858;
+}
+.admin_main {
+    padding: 25px 0 25px 50px;
+    height: calc(100vh - 100px - 35px);
+    overflow-y: scroll;
+
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+.admin_main::-webkit-scrollbar {
+    display: none;
+}
+.admin_footer {
+    height: 35px;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 15px;
+}
+.admin_footer p {
+    font-size: 0.77em;
+    margin-top: auto;
+    margin-bottom: 5px;
+}
+.admin_footer img {
+    margin-left: 25px;
+    height: 35px;
+}

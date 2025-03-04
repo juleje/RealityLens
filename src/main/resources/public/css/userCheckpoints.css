@@ -1,0 +1,172 @@
+#map_user {
+    width: 100vw;
+    height: 100vh;
+}
+.bottom_nav {
+    height: 5vh;
+    display: flex;
+    justify-content: space-around;
+}
+.filter_user_checkpoints h4{
+     font-size: 2.5vh;
+    padding:18px;
+}
+
+#filterClose{
+    margin-right: 10px;
+}
+
+.bottom_nav button {
+    height: 100%;
+}
+.bottom_nav button:hover {
+    cursor: pointer;
+}
+.bottom_nav button img {
+    width: 100%;
+    height: 100%;
+}
+
+.filter_user_checkpoints {
+    position: fixed;
+    top: 5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 80vh;
+    width: 70vh;
+    min-width: 300px;
+    max-width: 95%;
+    background-color: whitesmoke;
+    border: 3px solid black;
+    border-radius: 5px;
+}
+
+.filter_user_checkpoints .filterHeader {
+    display: flex;
+    justify-content: space-between;
+    width: 98%;
+    margin-left: 1%;
+    border-bottom: 1px solid #aaa;
+}
+.filter_user_checkpoints .filterHeader h3 {
+    font-size: 4.5vh;
+}
+.filter_user_checkpoints .filterHeader p {
+    font-size: 3em;
+}
+.filter_user_checkpoints .filterHeader p:hover {
+    cursor: pointer;
+}
+
+.filter_user_checkpoints .activeFilter {
+    width: calc(100% - 30px);
+    margin: 0 15px;
+    display: flex;
+    overflow-x: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+.filter_user_checkpoints .activeFilter::-webkit-scrollbar {
+    display: none;
+}
+.filter_user_checkpoints .activeFilter .tag {
+    height: 100%;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 0 5px;
+    margin-right: 15px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.8vh;
+}
+.filter_user_checkpoints .activeFilter .tagName {
+    margin: 0 15px 0 0;
+}
+.filter_user_checkpoints .activeFilter .tagRemove {
+    margin: 0;
+}
+
+.filter_user_checkpoints .availableFilter {
+    width: calc(100% - 30px);
+    margin: 0 15px;
+    max-height: 300px;
+    overflow-y: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+.filter_user_checkpoints .availableFilter::-webkit-scrollbar {
+    display: none;
+}
+
+.filter_user_checkpoints .availableFilter .tag {
+    width: 100%;
+    margin-bottom: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 1.8vh;
+}
+.filter_user_checkpoints .activeFilter .tag:hover,
+.filter_user_checkpoints .availableFilter .tag:hover {
+    cursor: pointer;
+}
+
+.filter_user_checkpoints .availableFilter .tag p {
+    margin-bottom: 0;
+}
+
+.topnav {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 25px;
+    height: 7vh;
+    width: 7vh;
+}
+.topnav #actions {
+    /*display: none;*/
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+.topnav #actions button {
+    color: white;
+    background-color: white;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 25px;
+    border: none;
+    transition: all 0.2s;
+}
+.topnav #actions button img {
+    width: 100%;
+    border-radius: 25px;
+    background-color: transparent;
+}
+
+.topnav #actions button.left_top {
+    top: -150px;
+    left: -150px;
+}
+.topnav #actions button.right_top {
+    top: -150px;
+    left: 150px;
+}
+
+.topnav .hambiIcon {
+    background: #85B8A2;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    border-radius: 25px;
+}
+.topnav .hambiIcon img{
+    width: 100%;
+    height: 100%;
+}

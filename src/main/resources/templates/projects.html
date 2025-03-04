@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Projecten - admin</title>
+
+    <div th:insert="layout/styles.html"></div>
+</head>
+<body>
+<div th:replace="layout/adminHeader.html :: admin_header(activePage='projects')"></div>
+<div th:replace="layout/adminHeaderMain.html"></div>
+<div class="admin_main">
+    <h1>Projecten</h1>
+
+    <a th:href="@{/admin/addproject}" class="btn btn-success add_checkpoint_button">Project toevoegen</a>
+
+    <div id="checkpoints_list" class="checkpoints_list">
+        <table id="checkpoints_table" class="table table-sm">
+            <thead>
+            <tr>
+                <th scope="col">Naam</th>
+                <th scope="col">Beschrijving</th>
+                <th scope="col"># checkpoints</th>
+                <th scope="col">QR-CODE</th>
+                <th colspan="2"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="project : ${projects}">
+                <td th:text="${project.getName()}"></td>
+                <td th:text="${project.getDescription()}"></td>
+                <td th:text="${project.getCheckpoints().size()}"></td>
+                <td><a th:href="@{/admin/showQRCode/{projectName}(projectName= ${project.getName()})}">Genereer</a></td>
+                <td><a th:href="@{/admin/editProject/{projectId}(projectId = ${project.getId()})}">Bewerken</a></td>
+                <td><a th:href="@{/admin/deleteProject/{projectId}(projectId = ${project.getId()})}">Verwijderen</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="qr-code-box">
+        <h2 th:text="${projectName}"></h2>
+        <img th:src="${qrCodeContent}" />
+    </div>
+</div>
+<div th:replace="layout/adminFooter.html"></div>
+
+<div th:insert="layout/scripts.html"></div>
+</body>
+</html>

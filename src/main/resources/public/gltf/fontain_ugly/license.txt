@@ -1,0 +1,11 @@
+Model Information:
+* title:	Fontain
+* source:	https://sketchfab.com/3d-models/fontain-6a1d1ab61a2f462e981bae781fb078e0
+* author:	scadl (https://sketchfab.com/scadl)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Fontain" (https://sketchfab.com/3d-models/fontain-6a1d1ab61a2f462e981bae781fb078e0) by scadl (https://sketchfab.com/scadl) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

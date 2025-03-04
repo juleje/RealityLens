@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Digital engagement - AR</title>
+    <script th:src="@{/js/aframe.min.js}" type="text/javascript"></script>
+    <script th:src="@{/js/lookAtComponent.js}" type="text/javascript"></script>
+    <script th:src="@{/js/tisweervanda.js}" type="text/javascript"></script>
+    <script th:src="@{/js/ArScript.js}" type="text/javascript"></script>
+    <script th:src="@{/js/popup.js}" type="text/javascript"></script>
+    <link th:href="@{/css/home.css}" rel="stylesheet"/>
+    <div th:insert="layout/styles.html"></div>
+</head>
+<body style="margin: 0; overflow:hidden;">
+<script th:inline="javascript">
+    window.addEventListener('load', (event) => {
+        let title = document.getElementById("checkpointName")
+        let desc = document.getElementById("checkpointDescription")
+        let number = document.getElementById("divCheckpointId")
+        let likes = document.getElementById("likeId")
+        let comments = document.getElementById("commentId")
+        let loggedIn = document.getElementById("checkIfLoggedIn")
+        let haveLiked = document.getElementById("checkIfLiked")
+
+        async function loadCheckpointData(checkpointId) {
+            await fetch("/api/checkpoints/get/" + checkpointId)
+                .then(result => result.json())
+                .then(function (data) {
+                    console.log(data);
+                    fillPopup(checkpointId, data)
+                })
+
+            await fetch("/api/checkpoints/likesandcomments/" + checkpointId)
+                .then(result => result.json())
+                .then(function (data) {
+                    console.log(data);
+                    fillPopup2(checkpointId, data)
+                })
+
+            initPopupListeners();
+            popup.classList.remove("d-none");
+        }
+
+        function fillPopup(checkpointId, data){
+            title.innerHTML = data.name;
+            desc.innerHTML = data.description;
+            number.innerHTML = checkpointId;
+        }
+
+        function fillPopup2(checkpointId, data){
+            console.log("fillpopup2")
+            console.log(data)
+            likes.innerHTML = data.numberOfLikes;
+            comments.innerHTML = data.numberOfComments;
+            loggedIn.innerHTML = data.amIloggedIn;
+            haveLiked.innerHTML = data.haveLiked;
+        }
+
+        const allIds = [[${checkpointsIds}]];
+        const hasCheckpoints = [[${hasCheckpoints}]]
+
+        const activePopup = [[${activePopup}]]
+        if (activePopup) {
+            const activePopupId = [[${activeCheckId}]]
+            loadCheckpointData(parseInt(activePopupId))
+        }
+
+        if (hasCheckpoints) {
+            fetchCheckpoints(allIds)
+
+        }
+
+        AFRAME.registerComponent("navclick", {
+            schema: {
+                url: {
+                    default: ""
+                }
+            },
+            init: function () {
+                let el = this.el;
+                el.addEventListener("click", (event) => {
+                    let classlists = event.target.classList;
+                    let checkpointId;
+                    for (let i = 0; i < classlists.length; i++) {
+                        if (classlists[i].startsWith("checkpointid")) {
+                            checkpointId = classlists[i].substring(13)
+                            loadCheckpointData(checkpointId)
+                        }
+                    }
+                });
+            }
+        });
+    });
+</script>
+<a-scene loadingascene vr-mode-ui="enabled: false" embedded arjs="sourceType: webcam;" cursor="rayOrigin: mouse">
+    <!--renderer="antialias: false; logarithmicDepthBuffer:true" gps-camera="gpsMinDistance: 8"-->
+    <a-camera look-controls-enabled="false" arjs-look-controls="smoothingFactor: 0.3" rotation-reader gps-camera>
+        <a-cursor></a-cursor>
+    </a-camera>
+</a-scene>
+<div id="divCheckpointId" class="d-none"></div>
+
+<div>
+    <img id="goBackArrowInAr" th:src="@{/img/arrowLeft.png}" alt="">
+    <p th:if="${checkpointsIds != null}" id="firstId" class="d-none" th:text="${checkpointsIds.split(',')[0]}"></p>
+</div>
+
+<div class="d-none" id="popup">
+    <div class="popupHeader">
+    <a class="close" id="close" href="#">&times;</a>
+    <h1 id="checkpointName"></h1>
+    </div>
+    <div class="descriptionPopup">
+        <p id="checkpointDescription"></p>
+    </div>
+    <div class="imagePopup">
+        <img th:src="${imageCheckpoint}" alt="afbeelding van checkpoint">
+    </div>
+
+    <div class="bottomPopup">
+
+        <div class="likes" id="likesIdDiv">
+            <img id="imageLike" class="likePic" th:src="@{/img/like.png}">
+            <p id="likeId" class="numberOfLikes" ></p>
+        </div>
+
+        <div class="comments" id="commentsId">
+            <img class="commentPic" th:src="@{/img/comment.png}">
+            <p id="commentId" class="numberOfComments"></p>
+        </div>
+    </div>
+    <div class="d-none" id="checkIfLoggedIn"></div>
+    <div id="checkIfLiked" class="d-none"></div>
+</div>
+</body>
+</html>

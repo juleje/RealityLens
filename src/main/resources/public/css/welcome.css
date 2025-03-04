@@ -1,0 +1,79 @@
+body {
+    background:url("https://images7.alphacoders.com/111/thumb-1920-1115774.jpg") no-repeat center;
+    display: flex;
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+    height: 100vh;
+    margin:0;
+}
+
+h1 {
+    font-weight: bold;
+    margin: 1rem;
+    background-color: white;
+    width:100%;
+    text-align: center;
+    font-size: 5em;
+}
+#welcomeUser{
+    margin-top: 100px;
+}
+
+button{
+    border-radius: 20px;
+    border: 1px solid #2871cc;
+    background-color: #2871cc;
+    color: #FFFFFF;
+    font-size: 2.5vh;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+}
+
+.logoutButton{
+    border-radius: 20px;
+    border: 1px solid #1E212F;
+    background-color: #1E212F;
+    color: #FFFFFF;
+    font-size: 2vh;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+}
+
+.formLogout{
+    position: relative;
+    top: -47%;
+    left: 37%;
+}
+
+
+
+----------
+
+
+
+#container {
+    text-align: center;
+}
+
+#qr-canvas {
+    width: 100%;
+    max-width: 800px;
+}
+
+
+#qr-result {
+    font-size: 1.2em;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 700px;
+    background-color: white;
+}

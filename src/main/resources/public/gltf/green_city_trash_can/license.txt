@@ -1,0 +1,11 @@
+Model Information:
+* title:	Green City Trash Can
+* source:	https://sketchfab.com/3d-models/green-city-trash-can-c5d23e21daef4fc2a62704149f5f9af6
+* author:	Raphael Escamilla (https://sketchfab.com/Raffey)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Green City Trash Can" (https://sketchfab.com/3d-models/green-city-trash-can-c5d23e21daef4fc2a62704149f5f9af6) by Raphael Escamilla (https://sketchfab.com/Raffey) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

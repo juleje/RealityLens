@@ -1,0 +1,158 @@
+.submenu_checkpoints {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    margin-bottom: 25px;
+}
+.submenu_checkpoints button {
+    margin-left: 5px;
+    margin-right: 10px;
+    border: none;
+    border-bottom: 2px solid transparent;
+    background-color: transparent;
+}
+.submenu_checkpoints button.active,
+.submenu_checkpoints button:hover {
+    border-bottom: 2px solid black;
+}
+.submenu_checkpoints button:hover {
+    cursor: pointer;
+}
+
+.add_upload_checkpoint_buttons {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+    margin-left: 5px;
+}
+.add_upload_checkpoint_buttons a {
+    margin-right: 5px;
+}
+.add_upload_checkpoint_buttons a:last-child {
+    margin-right: 0;
+}
+.addEditCheckpointHelper {
+    font-size: 0.77em;
+    margin: 0;
+}
+#map {
+    width: calc(100% - 20px);
+    margin-right: 20px;
+    min-width: 500px;
+    height: 400px;
+}
+.map_aside, .add_checkpoint_form {
+    width: 100%;
+    padding: 15px 0;
+}
+.map_aside .markerActions {
+    display: flex;
+    justify-content: flex-start;
+}
+.map_aside .markerActions a {
+    width: 50px;
+    margin-right: 15px;
+}
+.map_aside .markerActions a img {
+    height: 35px;
+}
+.map_aside .popout{
+    /*background-color:#85B8A2;
+    width: 60%;*/
+}
+
+.add_checkpoint_form input[type="submit"] {
+    margin-top: 15px;
+}
+
+.checkpoints_list {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.checkpoints_list select {
+    margin-bottom: 15px;
+}
+.checkpoints_list table tr:hover{
+    background-color: #eeeeee;
+}
+.checkpoints_list table thead tr:hover {
+    background-color: inherit;
+}
+.checkpoints_list table tbody tr td a img {
+    width: 25px;
+}
+
+.add_checkpoint_form .add_checkpoint_form_fields {
+    display: flex;
+}
+.add_checkpoint_form .add_checkpoint_form_fields .add_checkpoint_form_left {
+    width: 45%;
+    margin-right: 5%;
+}
+.add_checkpoint_form .add_checkpoint_form_fields .add_checkpoint_form_right {
+    width: 50%;
+}
+.add_checkpoint_form .add_checkpoint_form_fields .add_checkpoint_form_right .ck-editor__editable_inline {
+    min-height: 200px;
+}
+
+.allTags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.allTags .tag {
+    border: 3px solid black;
+    border-radius: 15px;
+    padding: 10px 15px 5px 15px;
+    margin: 5px;
+    text-align: center;
+}
+.allTags .tag p {
+    margin: 0;
+}
+
+.allTags .tag .actions {
+    display: flex;
+    justify-content: space-around;
+}
+
+.allTags .tag .actions a {
+    width: 20px;
+    margin: 0 5px;
+}
+.allTags .tag .actions a img {
+    width: 100%;
+}
+
+.checkpointTags .tagsAndTitle .tags {
+    display: flex;
+    flex-wrap: wrap;
+    width: 95vw;
+    margin: 0 2.5vw;
+    overflow-x: scroll;
+
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+.checkpointTags .tagsAndTitle .tags::-webkit-scrollbar {
+    display: none;
+}
+.checkpointTags .tagsAndTitle .tags .tag {
+    border: 3px solid black;
+    border-radius: 10px;
+    padding: 10px 15px;
+    display: flex;
+    margin-right: 15px;
+}
+.checkpointTags .tagsAndTitle .tags .tag p {
+    margin-bottom: 0;
+}
+.checkpointTags .tagsAndTitle .tags .tag p:last-child {
+    margin-left: 15px;
+}
+
+.checkpointTags .tagsAndTitle .tags .tag p:last-child:hover {
+    cursor: pointer;
+}
