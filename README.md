@@ -11,3 +11,8 @@ RealityLens is a mobile web application that enhances real-world exploration thr
 Initially, RealityLens was built using marker-based and image-based AR approaches. However, after further iteration, we opted for a location-based AR system, which allows users to explore real-world points of interest without the need for physical markers. As users walk around, their avatar moves on the map, and upon reaching designated locations, they can use their camera to reveal AR-generated insights about construction projects, historical landmarks, or urban developments.
 
 By combining interactive mapping with real-time AR overlays, RealityLens provides an engaging and educational way to interact with the evolving world around us.
+
+## Collaborators
+- Jules Verbessem
+- Anouk Deserranno
+- Robin Sel
